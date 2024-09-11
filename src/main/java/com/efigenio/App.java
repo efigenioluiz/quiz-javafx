@@ -20,10 +20,10 @@ public class App extends Application {
     private VBox root;
     private Text quantidadeQuestoesText;
     private Text resultadoText;
-    private Button butoesAlt1;
-    private Button butoesAlt2;
-    private Button butoesAlt3;
-    private Button butoesAlt4;
+    private Button alternativa1;
+    private Button alternativa2;
+    private Button alternativa3;
+    private Button alternativa4;
 
     @Override
     public void start(Stage stage) {
@@ -31,21 +31,21 @@ public class App extends Application {
         root = new VBox();
         quantidadeQuestoesText = new Text("Pergunta 0/0");
         resultadoText = new Text("");
-        butoesAlt1 = new Button();
-        butoesAlt2 = new Button();
-        butoesAlt3 = new Button();
-        butoesAlt4 = new Button();
+        alternativa1 = new Button();
+        alternativa2 = new Button();
+        alternativa3 = new Button();
+        alternativa4 = new Button();
 
-        butoesAlt1.setText("Alternativa 1");
-        butoesAlt2.setText("Alternativa 2");
-        butoesAlt3.setText("Alternativa 3");
-        butoesAlt4.setText("Alternativa 4");
+        alternativa1.setText("Alternativa 1");
+        alternativa2.setText("Alternativa 2");
+        alternativa3.setText("Alternativa 3");
+        alternativa4.setText("Alternativa 4");
 
         root.getChildren().add(quantidadeQuestoesText);
-        root.getChildren().add(butoesAlt1);
-        root.getChildren().add(butoesAlt2);
-        root.getChildren().add(butoesAlt3);
-        root.getChildren().add(butoesAlt4);
+        root.getChildren().add(alternativa1);
+        root.getChildren().add(alternativa2);
+        root.getChildren().add(alternativa3);
+        root.getChildren().add(alternativa4);
         root.getChildren().add(resultadoText);
         root.setAlignment(Pos.CENTER);
 
