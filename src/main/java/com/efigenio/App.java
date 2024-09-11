@@ -28,7 +28,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
 
-        root = new VBox();
+        root = new VBox(10);
         quantidadeQuestoesText = new Text("Pergunta 0/0");
         resultadoText = new Text("");
         alternativa1 = new Button();
