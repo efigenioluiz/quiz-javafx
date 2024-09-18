@@ -2,6 +2,7 @@ package com.efigenio;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import com.efigenio.controller.GameController;
@@ -45,9 +46,11 @@ public class App extends Application {
     public void atualizaComponente() {
         List<Questao> questoes = gameController.getAllQuestoes();
         Questao questaoAtual = gameController.getQuestaoAtual();
+        int indexAtual = questoes.indexOf(questaoAtual) + 1;
 
         quantidadeQuestoesText
-                .setText("Perguntas " + questoes.indexOf(questaoAtual) + "/" + gameController.getQuantidadeQuestoes());
+                .setText("Perguntas " + indexAtual + "/"
+                        + gameController.getQuantidadeQuestoes());
         enunciadoTxt.setText(questaoAtual.getEnunciado());
 
         alternativa1.setText(questaoAtual.getAlternativas().get(0));
@@ -74,6 +77,10 @@ public class App extends Application {
                 resultadoText.setVisible(true);
                 proximo.setVisible(true);
 
+                if (!gameController.temProxima()) {
+                    proximo.setVisible(false);
+                }
+
                 if (gameController.verificaJogada(bt.getText())) {
 
                     resultadoText.setText("Acertou");
@@ -91,8 +98,10 @@ public class App extends Application {
         return new EventHandler<Event>() {
             @Override
             public void handle(Event event) {
-                gameController.proximaQuestao();
                 resultadoText.setVisible(false);
+                resultadoText.setVisible(false);
+
+                proximo.setVisible(false);
                 atualizaComponente();
             }
         };
@@ -142,9 +151,10 @@ public class App extends Application {
 
         questoes.add(new Questao("Quando ocorre a aula de POO",
                 new ArrayList<>(Arrays.asList("Segunda", "Terca", "Quarta", "Quinta")), "Quarta"));
-        questoes.add(new Questao("Quando ocorre a aula de POO",
-                new ArrayList<>(Arrays.asList("Segunda", "Terca", "Quarta", "Quinta")), "Quarta"));
+        questoes.add(new Questao("Qual é Capital do Paraná",
+                new ArrayList<>(Arrays.asList("Pato Branco", "Curitiba", "Paranaguá", "Cascavel")), "Curitiba"));
 
+        Collections.shuffle(questoes);
         gameController = new GameController(questoes, 0, 0, questoes.get(0));
     }
 

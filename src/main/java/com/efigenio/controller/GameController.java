@@ -23,12 +23,23 @@ public class GameController {
     }
 
     public Boolean verificaJogada(String alternativa) {
+        boolean jogada = alternativa.equals(questaoAtual.getResposta());
 
-        if (alternativa.equals(questaoAtual.getResposta())) {
+        if (jogada) {
             questaoAtual.setCorreto(true);
-            return true;
+            this.acerto += 1;
+        } else {
+            this.erro += 1;
         }
-        return false;
+
+        int proximoIndice = questoes.indexOf(this.questaoAtual) + 1;
+        if (proximoIndice < questoes.size()) {
+            setQuestaoAtual(questoes.get(proximoIndice));
+        } else {
+            System.out.println(getStatusGame());
+        }
+
+        return jogada;
     }
 
     public void reiniciar() {
@@ -51,24 +62,20 @@ public class GameController {
 
     public boolean temProxima() {
         int indiceAtual = questoes.indexOf(this.questaoAtual);
-        return indiceAtual < questoes.size();
+        return indiceAtual >= 0 && indiceAtual < questoes.size() - 1;
     }
 
     public boolean proximaQuestao() {
-        int proximoIndice = questoes.indexOf(this.questaoAtual) + 1;
-        int tamanhoMaximo = questoes.size();
-
-        if (temProxima()) {
-            setQuestaoAtual(questoes.get(proximoIndice));
+        if (!temProxima()) {
+            return false;
         }
 
-        if (proximoIndice <= tamanhoMaximo) {
-            acerto += 1;
-            return true;
-        }
+        return true;
+    }
 
-        erro += 1;
-        return false;
+    public String getStatusGame() {
+        return String.format("Acertos: %d, Erros: %d, Questão Atual: %s",
+                acerto, erro, questaoAtual.getEnunciado());
     }
 
 }
