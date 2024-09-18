@@ -4,11 +4,13 @@ import java.util.List;
 
 public class Questao {
     private String enunciado;
+    private String resposta;
     private List<String> alternativas;
     private Boolean correto;
 
-    public Questao(String enunciado, List<String> alternativas) {
+    public Questao(String enunciado, List<String> alternativas, String resposta) {
         this.enunciado = enunciado;
+        this.resposta = resposta;
         this.alternativas = alternativas;
         correto = false;
 
@@ -40,6 +42,10 @@ public class Questao {
 
     public Boolean getCorreto() {
         return correto;
+    }
+
+    public String getResposta() {
+        return resposta;
     }
 
     public void setCorreto(Boolean correto) {
