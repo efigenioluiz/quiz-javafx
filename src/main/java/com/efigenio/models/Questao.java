@@ -1,4 +1,4 @@
-package com.efigenio.model;
+package com.efigenio.models;
 
 import java.util.List;
 

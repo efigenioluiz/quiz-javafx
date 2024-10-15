@@ -1,17 +1,17 @@
-package com.efigenio.controller;
+package com.efigenio.controllers;
 
 import java.util.List;
 
-import com.efigenio.model.Questao;
+import com.efigenio.models.Questao;
 
-public class GameController {
+public class GameQuizController {
 
     private List<Questao> questoes;
     private int acerto;
     private int erro;
     private Questao questaoAtual;
 
-    public GameController(List<Questao> questoes, int acerto, int erro, Questao questaoAtual) {
+    public GameQuizController(List<Questao> questoes, int acerto, int erro, Questao questaoAtual) {
         this.questoes = questoes;
         this.acerto = acerto;
         this.erro = erro;
@@ -35,10 +35,7 @@ public class GameController {
         int proximoIndice = questoes.indexOf(this.questaoAtual) + 1;
         if (proximoIndice < questoes.size()) {
             setQuestaoAtual(questoes.get(proximoIndice));
-        } else {
-            System.out.println(getStatusGame());
         }
-
         return jogada;
     }
 

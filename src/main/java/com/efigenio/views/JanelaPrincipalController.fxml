@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Text?>
+
+<GridPane hgap="10" vgap="10" alignment="CENTER" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efigenio.controllers.JanelaPrincipalController">
+    <Text fx:id="enunciadoText" text="Enunciado:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+    <Text fx:id="perguntasQtdText" text="0/0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+    <Button fx:id="alternativa1" onAction="#verificaJogada" text="Alternativa 1" GridPane.rowIndex="1" prefWidth="150" prefHeight="30" />
+    <Button fx:id="alternativa2" onAction="#verificaJogada" text="Alternativa 2" GridPane.rowIndex="2" prefWidth="150" prefHeight="30" />
+    <Button fx:id="alternativa3" onAction="#verificaJogada" text="Alternativa 3" GridPane.rowIndex="3" prefWidth="150" prefHeight="30" />
+    <Button fx:id="alternativa4" onAction="#verificaJogada" text="Alternativa 4" GridPane.rowIndex="4" prefWidth="150" prefHeight="30" />
+
+    <Button fx:id="proximoBtn" onAction="#proximo" text="Próximo" GridPane.rowIndex="5" prefWidth="150" prefHeight="30" />
+
+    <Text fx:id="resultadoText" text="Resultado" GridPane.rowIndex="6" />
+</GridPane>
